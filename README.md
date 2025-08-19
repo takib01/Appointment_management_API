@@ -217,7 +217,43 @@ appointment_api/
 └── README.md
 ```
 
-## Deployment Notes
+## Deployment to Render
+
+This project is configured for easy deployment to Render.com.
+
+### Quick Deploy Steps:
+
+1. **Push to GitHub**:
+   ```bash
+   git add .
+   git commit -m "Ready for deployment"
+   git push origin main
+   ```
+
+2. **Deploy on Render**:
+   - Go to [render.com](https://render.com)
+   - Connect your GitHub repository
+   - Choose "Web Service"
+   - Use these settings:
+     - **Build Command**: `./build.sh`
+     - **Start Command**: `gunicorn appointment_api.wsgi:application`
+     - **Environment**: `Python 3`
+
+3. **Environment Variables** (Render will auto-set these):
+   - `SECRET_KEY`: Auto-generated
+   - `DEBUG`: False
+   - `RENDER_EXTERNAL_HOSTNAME`: Auto-set by Render
+
+### Alternative Hosting Options:
+
+1. **Railway**: Similar to Render, supports Django out of the box
+2. **Heroku**: Classic PaaS, requires credit card but has free tier
+3. **PythonAnywhere**: Good for Python apps, has free tier
+4. **DigitalOcean App Platform**: Full-featured platform
+5. **AWS Elastic Beanstalk**: Amazon's PaaS solution
+6. **Google Cloud Run**: Serverless container platform
+
+### Production Notes
 
 For production deployment, consider:
 1. Change `DEBUG = False` in settings.py
