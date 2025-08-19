@@ -183,14 +183,6 @@ response = requests.post(url, json=data)
 print(response.json())
 ```
 
-## Sample Data
-
-The project includes 5 sample patients:
-- John Doe (ID: 1)
-- Jane Smith (ID: 2)
-- Michael Johnson (ID: 3)
-- Emily Davis (ID: 4)
-- David Wilson (ID: 5)
 
 ## Project Structure
 
